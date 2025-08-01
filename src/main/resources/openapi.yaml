@@ -1,0 +1,114 @@
+openapi: 3.0.3
+info:
+  title: Complex API
+  version: 1.0.0
+paths:
+  /users:
+    post:
+      summary: Create user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserCreateRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/UserCreateRequest'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+        '400':
+          description: Bad request
+        '422':
+          description: Validation failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        default:
+          description: Unexpected error
+
+components:
+  schemas:
+    UserCreateRequest:
+      allOf:
+        - $ref: '#/components/schemas/BaseRequest'
+        - type: object
+          required: [email, profile]
+          properties:
+            email:
+              type: string
+              format: email
+            profile:
+              $ref: '#/components/schemas/Profile'
+    BaseRequest:
+      type: object
+      properties:
+        traceId:
+          type: string
+
+    Profile:
+      type: object
+      oneOf:
+        - $ref: '#/components/schemas/PersonProfile'
+        - $ref: '#/components/schemas/CompanyProfile'
+
+    PersonProfile:
+      type: object
+      properties:
+        name:
+          type: string
+        age:
+          type: integer
+        contact:
+          $ref: '#/components/schemas/Contact'
+
+    CompanyProfile:
+      type: object
+      allOf:
+        - type: object
+          properties:
+            companyName:
+              type: string
+        - $ref: '#/components/schemas/Contact'
+
+    Contact:
+      type: object
+      properties:
+        phone:
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+
+    Address:
+      type: object
+      anyOf:
+        - type: object
+          properties:
+            street:
+              type: string
+        - type: object
+          properties:
+            locationCode:
+              type: string
+
+    UserResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        status:
+          type: string
+          enum: [active, inactive]
+# Add your OpenAPI YAML here

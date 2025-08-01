@@ -1,0 +1,103 @@
+Generate a Karate test scenario for this OpenAPI endpoint:
+
+Path: /users
+Method: POST
+Summary: Create user
+
+Parameters: none
+
+-- Media Type: application/json --
+Sample request body:
+  - traceId (type: string)
+    - unknown schema
+  - email (type: string, format: email)
+    - unknown schema
+  - profile (type: object)
+    oneOf:
+      - name (type: string)
+        - unknown schema
+      - age (type: integer)
+        - unknown schema
+      - contact (type: object)
+        - phone (type: string)
+          - unknown schema
+        - address (type: object)
+          anyOf:
+            - street (type: string)
+              - unknown schema
+            - locationCode (type: string)
+              - unknown schema
+      - companyName (type: string)
+        - unknown schema
+      - phone (type: string)
+        - unknown schema
+      - address (type: object)
+        anyOf:
+          - street (type: string)
+            - unknown schema
+          - locationCode (type: string)
+            - unknown schema
+
+-- Media Type: application/xml --
+Sample request body:
+  - traceId (type: string)
+    - unknown schema
+  - email (type: string, format: email)
+    - unknown schema
+  - profile (type: object)
+    oneOf:
+      - name (type: string)
+        - unknown schema
+      - age (type: integer)
+        - unknown schema
+      - contact (type: object)
+        - phone (type: string)
+          - unknown schema
+        - address (type: object)
+          anyOf:
+            - street (type: string)
+              - unknown schema
+            - locationCode (type: string)
+              - unknown schema
+      - companyName (type: string)
+        - unknown schema
+      - phone (type: string)
+        - unknown schema
+      - address (type: object)
+        anyOf:
+          - street (type: string)
+            - unknown schema
+          - locationCode (type: string)
+            - unknown schema
+
+Sample 201 response:
+  Content-Type: application/json
+  - id (type: string)
+    - unknown schema
+  - createdAt (type: string, format: date-time)
+    - unknown schema
+  - status (type: string, enum: [active, inactive])
+    - unknown schema
+
+Sample 400 response:
+- No schema defined
+
+Sample 422 response:
+  Content-Type: application/json
+  - message (type: string)
+    - unknown schema
+
+Sample default response:
+- No schema defined
+
+Instructions:
+- Use Karate syntax
+- Include a scenario for successful response
+- Handle path/query/header parameters
+- Validate response fields
+- Add negative test cases for 400, 422 and other non-2xx responses
+- Cover oneOf/anyOf/allOf combinations with variations
+- Handle $ref and schemas with no properties
+- Expand tests for each combination of oneOf/anyOf branches
+- Split scenarios by media type where applicable
+- Special handling for multipart/form-data
