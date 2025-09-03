@@ -1,0 +1,191 @@
+# 🚀 GitHub Copilot Playbook for Java Developers & Automation Testers
+
+This handbook provides **ready-to-use prompts** for GitHub Copilot.
+Just copy-paste the prompt in your editor or comment, and Copilot will generate the code.
+
+---
+
+## 📖 Table of Contents
+1. Java Development
+2. JavaDocs & Documentation
+3. Unit Testing & Mocking
+4. Automation Testing (Selenium, Playwright, Appium)
+5. API Testing (Karate, RestAssured)
+6. CI/CD, Reporting & Utilities
+
+---
+
+## 1. Java Development
+
+### 🔹 Boilerplate & Templates
+- Generate a Spring Boot REST controller with CRUD endpoints for Product entity.
+- Create a Java class with Builder pattern for User object.
+- Write a JPA entity with OneToMany between User and Orders.
+- Generate a Java utility class for reading and writing JSON using Jackson.
+- Create a service layer with exception handling and logging using SLF4J.
+- Generate a REST client using WebClient in Spring Boot.
+- Write a scheduled job in Spring Boot that runs every 10 minutes.
+- Create a Kafka producer and consumer in Java with Spring Boot.
+- Write a service that uploads files to AWS S3 using SDK v2.
+- Generate a Java class to consume messages from RabbitMQ.
+
+### 🔹 Refactoring & Best Practices
+- Refactor this method to use Java Streams instead of loops.
+- Suggest thread-safe implementation for Singleton in Java.
+- Optimize this recursive function with memoization.
+- Generate unit tests for this method using JUnit 5 and Mockito.
+- Refactor this code to follow SOLID principles.
+
+### 🔹 Error Handling & Logging
+- Generate a global exception handler in Spring Boot using @ControllerAdvice.
+- Write a custom error response object for REST APIs.
+- Create a logging aspect with Spring AOP to log all service method calls.
+
+### 🔹 Database & Persistence
+- Generate a Liquibase changelog script for creating User and Orders tables.
+- Write a Spring Data JPA repository with custom query methods.
+- Generate Flyway migration script for adding a column to Orders table.
+- Write a native SQL query using EntityManager in Spring Boot.
+
+### 🔹 Concurrency & Multithreading
+- Write a Java program using ExecutorService to run tasks in parallel.
+- Generate a CompletableFuture example for async REST calls.
+- Create a producer-consumer problem solution using BlockingQueue.
+- Write a Java class to handle thread-safe caching using ReadWriteLock.
+
+### 🔹 Performance & Security
+- Write a Java function to sanitize SQL input and prevent injection.
+- Generate a Java class to handle rate limiting using Guava Cache.
+- Write a Java method to validate JWT token using jjwt library.
+- Implement caching with ConcurrentHashMap for frequently accessed data.
+- Generate secure password hashing utility using BCrypt.
+
+---
+
+## 2. JavaDocs & Documentation
+- Generate Javadoc comments for all public methods in this class.
+- Write Javadoc for this method including parameters, return type, and exceptions.
+- Add Javadoc for this interface with usage examples.
+- Generate Javadoc for a Spring REST controller class.
+- Write class-level Javadoc explaining purpose, author, and version.
+
+---
+
+## 3. Unit Testing & Mocking
+
+### 🔹 JUnit 5
+- Generate JUnit 5 tests for this class with positive and negative cases.
+- Write parameterized JUnit 5 test for this method.
+- Generate JUnit 5 test cases using Mockito for dependencies.
+- Write JUnit 5 test for exception handling in this method.
+- Generate unit tests for private methods using reflection.
+
+### 🔹 TestNG
+- Write TestNG test cases for this method with multiple DataProvider inputs.
+- Generate TestNG test with retry mechanism for flaky tests.
+- Create TestNG test that validates exception is thrown.
+
+### 🔹 Mocking & Stubbing
+- Generate a Mockito unit test for this service class with mocked repository.
+- Write a unit test using Mockito to verify method interactions.
+- Generate JUnit test with mock RestTemplate for API call.
+- Write unit test with Mockito spy to partially mock this class.
+- Generate JUnit 5 test using WireMock to stub REST API responses.
+
+### 🔹 Integration Testing
+- Generate Spring Boot integration test with @SpringBootTest annotation.
+- Write a test with MockMvc for GET /users/{id} endpoint.
+- Generate JUnit test to validate JSON response using JsonPath.
+- Write integration test for service that uses Kafka topic.
+- Generate RestAssured integration test for POST request with JSON body.
+
+### 🔹 Code Coverage & Edge Cases
+- Generate JUnit tests to improve code coverage for this class.
+- Write unit tests for boundary conditions of this method.
+- Generate unit test for null and empty input cases.
+- Write a unit test to validate thread safety of this method.
+- Generate tests for all branches in this if-else logic.
+
+### 🔹 Test Utilities
+- Generate a JUnit extension to log test execution time.
+- Write a custom JUnit 5 annotation for running only on Windows.
+- Generate a utility class for creating mock User objects for tests.
+- Write a BaseTest class with setup and teardown methods for JUnit.
+- Generate reusable assertion utility for validating JSON responses.
+
+---
+
+## 4. Automation Testing (Selenium, Playwright, Appium)
+
+### 🔹 Selenium
+- Generate a Selenium Page Object class for Login page with locators and methods.
+- Write a TestNG test that logs into the site, verifies the title, and logs out.
+- Generate reusable Selenium utility methods for handling dropdowns and waits.
+- Write a retry analyzer in TestNG for failed test cases.
+- Create a Selenium Grid configuration for parallel execution on Chrome and Firefox.
+- Generate Selenium test to handle file upload and download.
+- Write a script to capture browser console logs during Selenium execution.
+- Generate Java code to handle multiple browser windows in Selenium.
+- Write a custom ExpectedCondition for waiting until table has at least one row.
+- Generate Selenium test to validate broken links on a webpage.
+
+### 🔹 Playwright (Java)
+- Generate Playwright Java code to navigate to a page, login, and assert page title.
+- Write Playwright test with conditional wait for element visibility.
+- Create Playwright Page Object for Cart page with locators and actions.
+- Generate Playwright script to capture screenshot on test failure.
+- Generate Playwright test to intercept network requests and mock response.
+- Write Playwright code to handle file uploads in Java.
+- Create Playwright script to emulate mobile viewport for iPhone 14.
+- Generate Playwright test for handling dialogs (alerts, confirm, prompt).
+- Write Playwright test with tracing enabled for debugging.
+
+### 🔹 Appium (Mobile Testing)
+- Write an Appium Java test to launch Swag Labs app, login, and verify products page.
+- Generate a Page Object for iOS login screen with Appium locators.
+- Create a BaseTest class for Appium with setup and teardown methods.
+- Generate Appium utility to swipe and scroll to an element.
+- Generate Appium test for Android app that scrolls and taps on a dynamic element.
+- Write Appium code to switch between native and webview context.
+- Create Appium test that validates push notifications on Android.
+- Generate Appium script to perform pinch and zoom gestures.
+- Write Appium test with parallel execution on multiple devices.
+
+---
+
+## 5. API Testing
+
+### 🔹 Karate
+- Generate a Karate feature file to test GET /users/{id} with positive and negative cases.
+- Create Karate test for API authentication with token re-use.
+- Generate Karate test for chaining multiple API calls with variable re-use.
+- Generate Karate feature to validate GraphQL query response.
+
+### 🔹 RestAssured
+- Write RestAssured Java test for POST request with JSON body and response validation.
+- Generate a test to validate response schema against OpenAPI spec using RestAssured.
+- Write RestAssured test with OAuth2 authentication.
+- Generate RestAssured code to upload a file via multipart POST request.
+- Write a RestAssured test to validate response time is less than 2 seconds.
+
+---
+
+## 6. CI/CD, Reporting & Utilities
+- Generate a Maven Surefire configuration to run TestNG tests with parallel execution.
+- Write a Jenkinsfile to run Selenium and API tests with JUnit reports.
+- Generate an Allure report integration with TestNG.
+- Write GitHub Actions workflow to run Playwright tests on pull requests.
+- Generate a Gradle task to execute Karate tests and generate HTML reports.
+- Generate a Java class to read test data from Excel using Apache POI.
+- Create a custom TestNG listener to capture screenshots on test failure.
+- Write a utility class for reading properties file with caching.
+- Generate a log4j2 configuration file for parallel test runs with rolling logs.
+- Create a TestNG DataProvider to fetch data from CSV file.
+- Write a Java utility to generate random test data (names, emails, phone numbers).
+- Generate code to integrate ExtentReports with TestNG framework.
+- Write a TestNG annotation transformer to dynamically assign test groups.
+- Generate Java code to encrypt and decrypt sensitive test data.
+
+---
+
+⚡ This playbook contains **120+ GitHub Copilot prompts** that every Java Developer and Automation Tester should know.
