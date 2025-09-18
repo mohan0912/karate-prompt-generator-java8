@@ -86,7 +86,7 @@ public class KarateGatlingPromptBuilder {
         }
 
         if (!params.isEmpty()) {
-            prompt.append("Parameters:/n");
+            prompt.append("Parameters:\n");
             for (Parameter p : params) {
                 Schema<?> schema = p.getSchema();
                 prompt.append("- ").append(p.getName()).append(" (in: ").append(p.getIn())
@@ -193,7 +193,7 @@ public class KarateGatlingPromptBuilder {
     private static Parameter resolveParameter(OpenAPI openAPI, Parameter p) {
         if (p.get$ref() != null) {
             String ref = p.get$ref();
-            String name = ref.substring(ref.lastIndexOf('/' + 1));
+            String name = ref.substring(ref.lastIndexOf('/') + 1);
             return openAPI.getComponents().getParameters().get(name);
         }
         return p;
@@ -214,7 +214,7 @@ public class KarateGatlingPromptBuilder {
         }
 
         if (schema.getAllOf() != null && !schema.getAllOf().isEmpty()) {
-            prompt.append(indent(indent)).append("allof:\n");
+            prompt.append(indent(indent)).append("allOf:\n");
             for (Schema<?> s : schema.getAllOf()) {
                 appendSchemaFields(prompt, s, schemaMap, indent + 1);
             }
@@ -222,7 +222,7 @@ public class KarateGatlingPromptBuilder {
         }
 
         if (schema.getOneOf() != null && !schema.getOneOf().isEmpty()) {
-            prompt.append(indent(indent)).append("oneof:\n");
+            prompt.append(indent(indent)).append("oneOf:\n");
             for (Schema<?> s : schema.getOneOf()) {
                 appendSchemaFields(prompt, s, schemaMap, indent + 1);
             }
@@ -230,7 +230,7 @@ public class KarateGatlingPromptBuilder {
         }
 
         if (schema.getAnyOf() != null && !schema.getAnyOf().isEmpty()) {
-            prompt.append(indent(indent)).append("any0f:\n");
+            prompt.append(indent(indent)).append("anyOf:\n");
             for (Schema<?> s : schema.getAnyOf()) {
                 appendSchemaFields(prompt, s, schemaMap, indent + 1);
             }
@@ -284,11 +284,11 @@ public class KarateGatlingPromptBuilder {
         if (type != null) {
             prompt.append(indent(indent)).append("- ").append(type);
 
-            if (schema.getFormat() != null) prompt.append(", format: ").append(schema.getFormat()).append(")");
-            if (schema.getEnum() != null) prompt.append(", enum: ").append(schema.getEnum()).append(")");
-            if (schema.getPattern() != null) prompt.append(", pattern: ").append(schema.getPattern()).append(")");
-            if (schema.getMinLength() != null) prompt.append(", minlength: ").append(schema.getMinLength()).append(")");
-            if (schema.getMaxLength() != null) prompt.append(", maxLength: ").append(schema.getMaxLength()).append(")");
+            if (schema.getFormat() != null) prompt.append("(format: ").append(schema.getFormat()).append(")");
+            if (schema.getEnum() != null) prompt.append("(enum: ").append(schema.getEnum()).append(")");
+            if (schema.getPattern() != null) prompt.append("(pattern: ").append(schema.getPattern()).append(")");
+            if (schema.getMinLength() != null) prompt.append("(minlength: ").append(schema.getMinLength()).append(")");
+            if (schema.getMaxLength() != null) prompt.append("(maxLength: ").append(schema.getMaxLength()).append(")");
             prompt.append("\n");
         } else {
             prompt.append(indent(indent)).append("- unknown Schema");
@@ -304,7 +304,8 @@ public class KarateGatlingPromptBuilder {
     }
 
     private static void savePromptToFile(String path, String method, String prompt) throws IOException {
-        String safeName = (method + "_" + path.replaceAll("[/{}/]", "_")).replaceAll("_+", "_") + ".txt";
+        String safeName = (method + "_" + path.replaceAll("[/{}/]", "_")).replaceAll("_+", "_")
+                .replaceAll("[\\\\:*?\"<>|]", "_") + ".txt";
         Path output = Paths.get(OUTPUT_DIR, safeName);
         Files.createDirectories(output.getParent());
         Files.write(output, prompt.getBytes());
