@@ -173,6 +173,17 @@ public class PractiTestPromptPerEndpoint {
                 .append(",,,,,,,,,Enter Password, Enter Password, User able to enter Password, \n")
                 .append(",,,,,,,,,Click on login button, Click on login button, user is able to login successfully, \n");
 
+//        prompt.append("\nInstructions:\n")
+//                .append(" Generate detailed manual PractiTest test scenarios in CSV format for API validation with columns:\n")
+//                .append(" Key, Name, Automation state, Status, Priority, Portfolio, Product Group, Product Team, Product, Preconditions, Test Data / Request Body, Endpoint, HTTP Method, Headers / Auth, Test Script (Step-by-Step) - Step, Test Description, Expected Response / Validation, Postconditions, Notes\n")
+//                .append("Example:\n")
+//                .append("Key, Name, Automation state, Status, Priority, Portfolio, Product Group, Product Team, Product, Preconditions, Test Data / Request Body, Endpoint, HTTP Method, Headers / Auth, Test Script (Step-by-Step) - Step, Test Description, Expected Response / Validation, Postconditions, Notes\n")
+//                .append("SAMPLE-API-001, Verify successful login API, Manual, Ready, High, *NO PORTFOLIO*, *NO GROUP*, *NO TEAM*, *NO PRODUCT*, API server is running, {\"username\":\"testuser\",\"password\":\"Pass@123\"}, /login, POST, Authorization: Bearer <token>, Send POST request to /login endpoint with valid credentials, Send login request, Response status 200, token received in response, -, Validate token format and expiry\n")
+//                .append(",,,,,,,,,Invalid login, {\"username\":\"wronguser\",\"password\":\"wrongpass\"}, /login, POST, -, Send POST request to /login endpoint with invalid credentials, Send login request, Response status 401, Error message 'Invalid credentials' returned, -, Validate error handling\n")
+//                .append("SAMPLE-API-002, Get user details API, Manual, Ready, Medium, *NO PORTFOLIO*, *NO GROUP*, *NO TEAM*, *NO PRODUCT*, Login token obtained, -, /user/{id}, GET, Authorization: Bearer <token>, Send GET request to fetch user details, Fetch user details, Response status 200, user object with fields id, name, email, -, Validate all expected fields in response\n")
+//                .append(",,,,,,,,,Unauthorized access, -, /user/{id}, GET, No Authorization header, Send GET request without token, Attempt unauthorized access, Response status 401, Error message 'Unauthorized' returned, -, Validate proper error handling\n");
+
+
         return prompt.toString();
 
     }

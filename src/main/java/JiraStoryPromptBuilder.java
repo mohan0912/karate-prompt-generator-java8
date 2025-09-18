@@ -176,6 +176,24 @@ public class JiraStoryPromptBuilder {
                 .append("- Add validation rules for required/optional fields and error handling\n")
                 .append("- Add expected error scenarios and error codes\n")
                 .append("- Add business logic or domain-specific rules if applicable\n");
+//        prompt.append("\nInstructions:\n")
+//                .append("- Generate a detailed Jira user story for this API endpoint\n")
+//                .append("- Include the end-user interaction and business goal\n")
+//                .append("- Add endpoint details: path, HTTP method, and summary\n")
+//                .append("- Document path, query, and header parameters including type, required/optional, patterns, min/max length, and invalid value handling\n")
+//                .append("- Include request examples and sample payloads\n")
+//                .append("- Include response examples and expected status codes\n")
+//                .append("- Describe response body fields for successful (2xx) responses with types, nested objects, and enums\n")
+//                .append("- Document oneOf / anyOf / allOf schema combinations and how they affect response structure\n")
+//                .append("- Include handling for multipart/form-data and different media types\n")
+//                .append("- Resolve and explain any $ref references used in request or response schemas\n")
+//                .append("- Add validation rules for required/optional fields, format checks, and business logic constraints\n")
+//                .append("- Document expected error scenarios, status codes, and corresponding messages\n")
+//                .append("- Include notes on domain-specific rules, dependencies, or workflow considerations\n")
+//                .append("- Suggest test ideas for both positive and negative scenarios\n")
+//                .append("- Highlight any rate limits, authentication, or authorization considerations\n")
+//                .append("- Optionally include links to related endpoints or workflow steps for context\n");
+
 
 
 

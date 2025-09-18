@@ -183,6 +183,23 @@ public class KaratePromptBuilder {
                 .append("- Validate business logic and domain-specific rules\n")
                 .append("- Include request and response examples in scenarios\n")
                 .append("- Validate enum values and required/optional fields\n");
+//        prompt.append("\nInstructions:\n")
+//                .append(" Generate Karate test scripts from the given OpenAPI specification.\n")
+//                .append(" - Create one `.feature` file per API operation.\n")
+//                .append(" - Each feature should include:\n")
+//                .append("     * A descriptive `Feature:` title based on the endpoint purpose.\n")
+//                .append("     * A `Background:` section that sets up the `baseUrl` and authentication if required.\n")
+//                .append("     * At least one `Scenario:` for the happy path (e.g., 200 OK).\n")
+//                .append("     * Negative test `Scenarios:` for errors (401, 400, 404, etc.) if defined.\n")
+//                .append(" - Use request payloads derived from schema examples, resolving `$ref` and nested schemas.\n")
+//                .append(" - Include path, query, and header parameters where defined.\n")
+//                .append(" - For request bodies, generate sample JSON based on schema properties (primitive values, enums, arrays, objects).\n")
+//                .append(" - For responses, validate essential fields using Karate matchers (e.g., `match response == {...}`, `#string`, `#number`).\n")
+//                .append(" - Organize `.feature` files into folders by tag if tags are available.\n")
+//                .append(" - Add comments (`#`) explaining important request and validation parts.\n")
+//                .append(" - If multiple auth flows exist, add reusable functions or background steps for token retrieval.\n")
+//                .append(" - Ensure consistent indentation, readable formatting, and clear separation between sections.\n");
+
 
 
         return prompt.toString();

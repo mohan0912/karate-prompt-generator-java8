@@ -183,6 +183,24 @@ public class KarateGatlingPromptBuilder {
                 .append("- Include setup and teardown steps for environment\n")
                 .append("- Use Gatling assertions for response validation\n")
                 .append("- Include request and response examples in Scala code\n");
+//        prompt.append("\nInstructions:\n")
+//                .append("- Use Karate-Gatling integration with Scala syntax\n")
+//                .append("- Parameterize test data using Gatling feeders or CSV/JSON files\n")
+//                .append("- Include scenarios for load, stress, spike, endurance, and soak testing\n")
+//                .append("- Validate response time, throughput, latency percentiles (95th, 99th), and error rates\n")
+//                .append("- Add assertions for HTTP status codes, response content, and schema validation\n")
+//                .append("- Handle path/query/header parameters dynamically in requests\n")
+//                .append("- Model realistic user journeys with multiple endpoints and sequential requests\n")
+//                .append("- Split scenarios for different user types, roles, and load profiles\n")
+//                .append("- Include setup and teardown steps for environment initialization and cleanup\n")
+//                .append("- Support ramp-up, constant, and ramp-down user injection profiles\n")
+//                .append("- Use Gatling assertions for response validation and SLA thresholds\n")
+//                .append("- Include request and response examples in Scala code with realistic test data\n")
+//                .append("- Log all request/response metrics and errors for analysis\n")
+//                .append("- Capture and report test metrics: response times, failures, successes, and throughput\n")
+//                .append("- Incorporate retries or error handling for transient failures\n")
+//                .append("- Include conditional flows, loops, and data-driven iterations if needed\n");
+
 
 
 
