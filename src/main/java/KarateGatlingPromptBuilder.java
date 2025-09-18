@@ -1,20 +1,26 @@
-import io.swagger.v3.oas.models.*;
-import io.swagger.v3.oas.models.media.*;
-import io.swagger.v3.oas.models.parameters.*;
-import io.swagger.v3.oas.models.responses.*;
-import io.swagger.v3.oas.models.security.SecurityRequirement;
+import io.swagger.v3.oas.models.Components;
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.Operation;
+import io.swagger.v3.oas.models.PathItem;
+import io.swagger.v3.oas.models.media.ArraySchema;
+import io.swagger.v3.oas.models.media.Content;
+import io.swagger.v3.oas.models.media.MediaType;
+import io.swagger.v3.oas.models.media.Schema;
+import io.swagger.v3.oas.models.parameters.Parameter;
+import io.swagger.v3.oas.models.responses.ApiResponse;
+import io.swagger.v3.oas.models.responses.ApiResponses;
 import io.swagger.v3.parser.OpenAPIV3Parser;
 import io.swagger.v3.parser.core.models.SwaggerParseResult;
 
-import java.io.*;
-import java.nio.file.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
-
 import java.util.*;
 
-public class PractiTestPromptPerEndpoint {
+public class KarateGatlingPromptBuilder {
 
-    private static final String OUTPUT_DIR = "generated-prompts2";
+    private static final String OUTPUT_DIR = "generated-prompts4";
     private static final String inputYamlPath = "src/main/resources/openapi.yaml";
     private static final boolean INCLUDE_GLOBAL_RESPONSES = true;
 
@@ -59,7 +65,7 @@ public class PractiTestPromptPerEndpoint {
     private static String buildPrompt(OpenAPI openAPI, Map<String, Schema> schemaMap,
                                       String path, String method, Operation op) {
         StringBuilder prompt = new StringBuilder();
-        prompt.append("Generate end to end practitest test scenario for this OpenAPI endpoint: \n\n")
+        prompt.append("Generate all possible Karate performance test scenario for this OpenAPI endpoint \n\n")
                 .append("Path: ").append(path).append("\n")
                 .append("Method: ").append(method.toUpperCase()).append("\n")
                 .append("Summary: ").append(op.getSummary() != null ? op.getSummary() : "(no summary provided)").append("\n\n");
@@ -165,13 +171,20 @@ public class PractiTestPromptPerEndpoint {
 
 
         prompt.append("\nInstructions:\n")
-                .append(" Generate manual PractiTest test scenarios in CSV format with columns: Key, Name, Automation state, Status, Priority, Portfolio, Product Group, Product Team, Product, Test Script (Step-by-Step) Step, Test Description, Test Script (Step-by-Step) Expected Result, Test Script (800)\n")
-                .append("Example:\n")
-                .append("Key, Name, Automation state, Status, Priority, Portfolio, Product Group, Product Team, Product, Test Script (Step-by-Step) - Step, Test Description, Test Script (Step-by-Step) Expected Result, Test Script (BDD)\n")
-                .append("SAMPLE-512, User should able to login into application successfully, Manual, Ready, Normal, *NO PORTFOLIO*, *NO GROUP*, *NO TEAM*, *NO TEAM*, *NO PRODUCT*, open the application URL, open the application URL, user is able to open application URL, \n")
-                .append(",,,,,,,,,Enter Username, Enter Username, User able to enter Username, \n")
-                .append(",,,,,,,,,Enter Password, Enter Password, User able to enter Password, \n")
-                .append(",,,,,,,,,Click on login button, Click on login button, user is able to login successfully, \n");
+                .append("- Use Karate-Gatling integration with Scala syntax\n")
+                .append("- Parameterize test data using Gatling feeders\n")
+                .append("- Include scenarios for load, stress, and spike testing\n")
+                .append("- Validate response time, throughput, and error rates\n")
+                .append("- Add assertions for status codes and performance thresholds\n")
+                .append("- Handle path/query/header parameters in requests\n")
+                .append("- Split scenarios for different user journeys and load profiles\n")
+                .append("- Log and report metrics for each scenario\n")
+                .append("- Support ramp-up, constant, and ramp-down user injection profiles\n")
+                .append("- Include setup and teardown steps for environment\n")
+                .append("- Use Gatling assertions for response validation\n")
+                .append("- Include request and response examples in Scala code\n");
+
+
 
         return prompt.toString();
 
